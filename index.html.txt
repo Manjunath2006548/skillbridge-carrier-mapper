@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SkillBridge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>SkillBridge: AI-Powered Career Mapper</h1>
+
+  <label>Enter your skills (comma-separated):</label>
+  <input id="skills" placeholder="Python, JavaScript, C" />
+  <button id="btn">Get recommendation</button>
+
+  <p id="result"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>

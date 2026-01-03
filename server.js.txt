@@ -1,0 +1,20 @@
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.post("/api/recommend", (req, res) => {
+  const skills = (req.body.skills || []).map(s => s.toLowerCase());
+  let path = "General Software Engineering";
+
+  if (skills.includes("python")) path = "Data Science / AI";
+  else if (skills.includes("javascript")) path = "Full-Stack Web Development";
+  else if (skills.includes("c") || skills.includes("fpga")) path = "Embedded Systems / Hardware Design";
+
+  res.json({ careerPath: path });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

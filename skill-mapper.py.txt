@@ -1,0 +1,13 @@
+def recommend_career(skills):
+    s = [x.lower() for x in skills]
+    if "python" in s:
+        return "Data Science / AI"
+    if "javascript" in s:
+        return "Full-Stack Web Development"
+    if "c" in s or "fpga" in s:
+        return "Embedded Systems / Hardware Design"
+    return "General Software Engineering"
+
+if __name__ == "__main__":
+    sample = ["Python", "JavaScript"]
+    print("Recommended Career Path:", recommend_career(sample))

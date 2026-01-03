@@ -1,0 +1,19 @@
+document.getElementById("btn").onclick = async () => {
+  const raw = document.getElementById("skills").value;
+  const skills = raw.split(",").map(s => s.trim());
+
+  try {
+    // For local testing, keep localhost. Replace with your deployed backend URL later.
+    const res = await fetch("http://localhost:5000/api/recommend", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ skills })
+    });
+    const data = await res.json();
+    document.getElementById("result").textContent =
+      `Recommended Career Path: ${data.careerPath}`;
+  } catch (e) {
+    document.getElementById("result").textContent =
+      "Could not reach backend. Is it running?";
+  }
+};
